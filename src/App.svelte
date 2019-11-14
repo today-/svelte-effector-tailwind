@@ -1,5 +1,5 @@
 <script>
-	import Button from './Button.svelte';
+	import Counter from "./Counter.svelte";
 	import Heading from './Heading.svelte';
 
 	export let name;
@@ -10,9 +10,7 @@
 		{name}!
 	</Heading>
 
-	<Button>
-		Kek
-	</Button>
+	<Counter/>
 </div>
 
 <style>

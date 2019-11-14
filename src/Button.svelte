@@ -1,6 +1,6 @@
-<div class="button">
+<button class="button" on:click>
     <slot></slot>
-</div>
+</button>
 
 <style>
     .button {
