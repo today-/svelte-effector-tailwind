@@ -1,28 +1,22 @@
 <script>
+	import Button from './Button.svelte';
+	import Heading from './Heading.svelte';
+
 	export let name;
 </script>
 
 <div class="shadow">
-	<h1>
+	<Heading>
 		{name}!
-	</h1>
+	</Heading>
 
-	<div class="button">
+	<Button>
 		Kek
-	</div>
+	</Button>
 </div>
 
 <style>
 	.shadow {
 		@apply shadow;
-	}
-	h1 {
-		@apply font-bold py-2 px-4 rounded;
-	}
-	.button {
-		@apply font-bold py-2 px-4 rounded bg-blue-500 text-white transition-bg cursor-pointer;
-	}
-	.button:hover {
-		@apply bg-blue-700;
 	}
 </style>
