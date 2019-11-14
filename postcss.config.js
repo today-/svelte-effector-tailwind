@@ -5,13 +5,13 @@
 // });
 
 module.exports = {
-	plugins: [
-		require('postcss-import'),
-		require("tailwindcss"),
-		require('postcss-nested'),
-		require('postcss-custom-properties'),
-		require('autoprefixer')
-		// only needed if you want to purge
-		// ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
-	]
+  plugins: [
+    require('postcss-import'),
+    require("tailwindcss"),
+    require('postcss-nested'),
+    require('postcss-custom-properties'),
+    require('autoprefixer')
+    // only needed if you want to purge
+    // ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
+  ]
 };

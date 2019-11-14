@@ -1,20 +1,21 @@
 <script>
-	import Counter from "./Counter.svelte";
-	import Heading from './Heading.svelte';
-
-	export let name;
+  import Todos from "./Todos.svelte";
+  import Counter from "./Counter.svelte";
+  import Heading from './Heading.svelte';
 </script>
 
 <div class="shadow">
-	<Heading>
-		{name}!
-	</Heading>
+  <Heading>
+    !
+  </Heading>
 
-	<Counter/>
+  <Counter/>
+
+  <Todos/>
 </div>
 
 <style>
-	.shadow {
-		@apply shadow;
-	}
+  .shadow {
+    @apply shadow;
+  }
 </style>
