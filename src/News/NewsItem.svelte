@@ -6,14 +6,14 @@
   export let item;
 </script>
 
-<Link to={`/${item.id}`}>
+<Link to={`/news/${item.id}`}>
   <Card>
     <Heading>
       {item.title}
     </Heading>
-    <span class="author">
+    <div class="author">
       by {item.user}
-    </span>
+    </div>
     <div class="date">
       {item.time_ago}
     </div>

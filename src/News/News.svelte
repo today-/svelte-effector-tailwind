@@ -1,8 +1,8 @@
 <script>
+  import {onMount} from 'svelte';
   import NewsItem from "./NewsItem.svelte";
   import Button from "../ui/Button.svelte";
   import Conditional from "../ui/Conditional.svelte";
-  import {onMount} from 'svelte';
   import {loading, error, result, effect as getNews} from './news'
 
   onMount(getNews);

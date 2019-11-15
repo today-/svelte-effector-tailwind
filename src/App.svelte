@@ -10,8 +10,8 @@
 
 <Router url="{url}">
   <Layout>
-    <Route path="/:id" component={NewsDetails}/>
     <Route path="/" component={News}/>
+    <Route path="/news/:id" component={NewsDetails}/>
     <Route component={Page404}/>
   </Layout>
 </Router>

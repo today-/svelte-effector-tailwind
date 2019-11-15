@@ -1,6 +1,6 @@
 <script>
-  import Conditional from "../ui/Conditional.svelte";
   import {onMount} from 'svelte';
+  import Conditional from "../ui/Conditional.svelte";
   import {loading, error, result, effect as getDetails} from './news-details'
 
   export let id;
