@@ -4,6 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import {terser} from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
+import typescript from 'rollup-plugin-typescript';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -21,14 +22,17 @@ export default {
       css: css => {
         css.write('public/bundle.pcss');
       },
-      preprocess: sveltePreprocess({postcss: true})
+      preprocess: sveltePreprocess({postcss: true, typescript: true})
     }),
 
     resolve({
       browser: true,
       dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
     }),
-    commonjs(),
+
+    typescript({module: 'CommonJS'}),
+
+    commonjs({extensions: ['.ts', '.js']}),
 
     !production && livereload('public'),
 

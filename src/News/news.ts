@@ -1,9 +1,16 @@
 import {createService} from '../service';
 import {request} from "../request";
 
-const fetchNews = async (page = 1) => {
+type INewsItem = {
+  id: number;
+  title: string;
+  user: string;
+  time_ago: string;
+}
+
+const fetchNews = async (page: number = 1) => {
   await new Promise(r => setTimeout(r, 1000));
-  return request(`news?page=${page}`);
+  return request<INewsItem[]>(`news?page=${page}`);
 };
 
 export const {loading, error, result, effect} = createService(

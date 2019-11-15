@@ -22,9 +22,12 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-svelte": "^5.1.1",
     "rollup-plugin-terser": "^5.1.2",
+    "rollup-plugin-typescript": "^1.0.1",
     "svelte": "^3.14.1",
     "svelte-routing": "^1.4.0",
-    "svelte-preprocess": "^3.2.6"
+    "svelte-preprocess": "^3.2.6",
+    "tslib": "^1.10.0",
+    "typescript": "^3.7.2"
   },
   "scripts": {
     "watch:tailwind": "postcss public/*.pcss --ext css --dir public -w",

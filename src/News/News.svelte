@@ -6,7 +6,7 @@
   import Spinner from "../ui/Spinner.svelte";
   import Observer from "../ui/Observer.svelte";
   import Conditional from "../ui/Conditional.svelte";
-  import {loading, error, result, effect as getNews} from './news'
+  import {loading, error, result, effect as getNews} from './news.ts'
 
   let page = 1;
 
