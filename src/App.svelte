@@ -1,7 +1,7 @@
 <script>
   import Page404 from "./Page404/Page404.svelte";
   import { Router, Route } from "svelte-routing";
-  import Layout from "./ui/Layout.svelte";
+  import Layout from "./Layout/Layout.svelte";
   import News from "./News/News.svelte";
 
   export let url = "";

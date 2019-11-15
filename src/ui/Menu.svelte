@@ -1,10 +1,5 @@
-<script>
-  import { Link } from "svelte-routing";
-</script>
-
 <nav class="menu">
-  <Link to="/">News</Link>
-  <Link to="/404">404 page</Link>
+  <slot/>
 </nav>
 
 <style type="text/postcss">
