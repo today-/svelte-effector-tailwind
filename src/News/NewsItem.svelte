@@ -1,9 +1,9 @@
-<script lang="ts">
+<script>
   import {Link} from "svelte-routing";
   import Card from "../ui/Card.svelte";
   import Heading from "../ui/Heading.svelte";
 
-  export let item: INewsItem;
+  export let item;
 </script>
 
 <Link to={`/news/${item.id}`}>
