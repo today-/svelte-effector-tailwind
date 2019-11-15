@@ -1,19 +1,24 @@
 <script>
+  import {Link} from "svelte-routing";
   import Card from "../ui/Card.svelte";
   import Heading from "../ui/Heading.svelte";
 
   export let item;
 </script>
 
-<Card>
-  <Heading>
-    {item.title}
-  </Heading>
-  <span class="author"> by {item.user}</span>
-  <div class="date">
-    {item.time_ago}
-  </div>
-</Card>
+<Link to={`/${item.id}`}>
+  <Card>
+    <Heading>
+      {item.title}
+    </Heading>
+    <span class="author">
+      by {item.user}
+    </span>
+    <div class="date">
+      {item.time_ago}
+    </div>
+  </Card>
+</Link>
 
 <style>
   .author {

@@ -1,6 +1,6 @@
 <script>
+  import {Link} from "svelte-routing";
   import Menu from "../ui/Menu.svelte";
-  import { Link } from "svelte-routing";
 </script>
 
 <Menu>

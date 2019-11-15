@@ -1,8 +1,9 @@
-import { createService } from '../service';
+import {createService} from '../service';
+import {request} from "../request";
 
 const fetchNews = async (page = 1) => {
   await new Promise(r => setTimeout(r, 1000));
-  return fetch(`https://node-hnapi.herokuapp.com/news?page=${page}`).then(r => r.json());
+  return request(`news?page=${page}`);
 };
 
 export const {loading, error, result, effect} = createService(fetchNews, []);
