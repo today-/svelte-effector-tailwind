@@ -3,7 +3,7 @@
   import NewsItem from "./NewsItem.svelte";
   import Button from "../ui/Button.svelte";
   import Conditional from "../ui/Conditional.svelte";
-  import {loading, error, result, effect as getNews} from './news'
+  import {loading, error, result, effect as getNews} from './news.ts'
 
   onMount(getNews);
 </script>
