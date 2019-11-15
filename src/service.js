@@ -1,6 +1,10 @@
 import {createEffect, createStore} from 'effector';
 
-export const createService = (asyncFn, initialState = null) => {
+export const createService = (
+  asyncFn,
+  initialState = null,
+  onSuccessCallback = (_, {result}) => result
+) => {
   const effect = createEffect({handler: asyncFn});
 
   const loading = createStore(false)
@@ -12,7 +16,7 @@ export const createService = (asyncFn, initialState = null) => {
     .on(effect.fail, (_, {error}) => typeof error === 'object' ? error.message : error);
 
   const result = createStore(initialState)
-    .on(effect.done, (_, {result}) => result);
+    .on(effect.done, onSuccessCallback);
 
   return {effect, loading, error, result};
 };

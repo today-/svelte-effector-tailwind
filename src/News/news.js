@@ -6,4 +6,8 @@ const fetchNews = async (page = 1) => {
   return request(`news?page=${page}`);
 };
 
-export const {loading, error, result, effect} = createService(fetchNews, []);
+export const {loading, error, result, effect} = createService(
+  fetchNews,
+  [],
+  (state, {result, params}) => (params > 1) ? [...state, ...result] : result
+);

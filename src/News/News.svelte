@@ -1,9 +1,19 @@
 <script>
+
   import {onMount} from 'svelte';
   import NewsItem from "./NewsItem.svelte";
   import Button from "../ui/Button.svelte";
+  import Spinner from "../ui/Spinner.svelte";
+  import Observer from "../ui/Observer.svelte";
   import Conditional from "../ui/Conditional.svelte";
   import {loading, error, result, effect as getNews} from './news'
+
+  let page = 1;
+
+  function handleScroll() {
+    page += 1;
+    getNews(page);
+  }
 
   onMount(getNews);
 </script>
@@ -12,12 +22,15 @@
   RELOAD
 </Button>
 
-<Conditional
-  loading={$loading}
-  error={$error}
->
+<Conditional error={$error}>
   {#each $result as item}
     <NewsItem item={item} />
   {/each}
+
+  {#if $loading}
+    <Spinner/>
+  {/if}
+
+  <Observer on:message={handleScroll}/>
 </Conditional>
 
