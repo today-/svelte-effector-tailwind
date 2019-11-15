@@ -1,5 +1,6 @@
 <script>
   import {onMount} from 'svelte';
+  import Heading from "../ui/Heading.svelte";
   import Conditional from "../ui/Conditional.svelte";
   import {loading, error, result, effect as getDetails} from './news-details'
 
@@ -9,9 +10,10 @@
 </script>
 
 <Conditional
-    loading={$loading}
-    error={$error}
+  loading={$loading}
+  error={$error}
 >
+  <Heading>{$result.title}</Heading>
   <pre>{JSON.stringify($result, null, 2)}</pre>
 </Conditional>
 

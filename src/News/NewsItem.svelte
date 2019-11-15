@@ -3,6 +3,7 @@
   import Card from "../ui/Card.svelte";
   import Heading from "../ui/Heading.svelte";
 
+  /** @type {INewsItem} */
   export let item;
 </script>
 

@@ -1,6 +1,18 @@
 import {createService} from '../service';
-import {request} from "../request";
+import {request} from '../request';
 
-const fetchDetails = (id: string) => request(`item/${id}`);
+type INewsDetails = {
+  id: string;
+  title: string;
+  points: number;
+  user: string;
+  time_ago: string;
+  type: string;
+  url: string;
+  domain: string;
+  comments: any[];
+};
 
-export const {loading, error, result, effect} = createService(fetchDetails, {});
+const fetchDetails = (id: string) => request<INewsDetails>(`item/${id}`);
+
+export const {loading, error, result, effect} = createService(fetchDetails, {} as INewsDetails);
