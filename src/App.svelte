@@ -1,4 +1,5 @@
 <script>
+  import News from "./News.svelte";
   import Todos from "./Todos.svelte";
   import Counter from "./Counter.svelte";
   import Heading from './Heading.svelte';
@@ -12,6 +13,8 @@
   <Counter/>
 
   <Todos/>
+
+  <News/>
 </div>
 
 <style>

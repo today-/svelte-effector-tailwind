@@ -1,33 +1,21 @@
 <script>
+  import {todos, addTodo, remove, clearCompleted} from './todos';
   const ENTER_KEY = 13;
   const ESCAPE_KEY = 27;
 
-  let items = [];
   let editing = null;
 
-  function clearCompleted() {
-    items = items.filter(item => !item.completed);
-  }
-
-  function remove(index) {
-    items = items.slice(0, index).concat(items.slice(index + 1));
-  }
-
   function toggleAll(event) {
-    items = items.map(item => ({
-      id: item.id,
-      description: item.description,
-      completed: event.target.checked
-    }));
+    // items = items.map(item => ({
+    //   id: item.id,
+    //   description: item.description,
+    //   completed: event.target.checked
+    // }));
   }
 
   function createNew(event) {
     if (event.which === ENTER_KEY) {
-      items = items.concat({
-        id: uuid(),
-        description: event.target.value,
-        completed: false
-      });
+      addTodo(event.target.value);
       event.target.value = '';
     }
   }
@@ -37,19 +25,12 @@
       event.target.blur();
     } else if (event.which === ESCAPE_KEY) editing = null;
   }
-
   function submit(event) {
-    items[editing].description = event.target.value;
+    // items[editing].description = event.target.value;
     editing = null;
   }
 
-  function uuid() {
-    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-      var r = Math.random() * 16 | 0, v = c === 'x' ? r : (r & 0x3 | 0x8);
-      return v.toString(16);
-    });
-  }
-
+  $: items = $todos;
   $: numActive = items.filter(item => !item.completed).length;
   $: numCompleted = items.filter(item => item.completed).length;
 </script>
