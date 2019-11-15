@@ -17,8 +17,6 @@ export default {
     file: 'public/bundle.js'
   },
   plugins: [
-    typescript({module: 'CommonJS'}),
-
     svelte({
       dev: !production,
       css: css => {
@@ -31,7 +29,10 @@ export default {
       browser: true,
       dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
     }),
-    commonjs({extensions: ['.js', '.ts']}),
+
+    typescript({module: 'CommonJS'}),
+
+    commonjs({extensions: ['.ts', '.js']}),
 
     !production && livereload('public'),
 
