@@ -1,39 +1,18 @@
 import {createEffect, createStore} from 'effector';
 
-export const loadingReducer = (state)=> ({
-  ...state,
-  loading: true,
-  error: null
-});
+export const createService = (asyncFn, initialState = null) => {
+  const effect = createEffect({handler: asyncFn});
 
-export const successReducer = (state, {result}) => ({
-  ...state,
-  loading: false,
-  error: null,
-  result
-});
+  const loading = createStore(false)
+    .on(effect, () => true)
+    .on(effect.finally, () => false);
 
-export const errorReducer = (state, {error}) => ({
-  ...state,
-  loading: false,
-  error: typeof error === 'object' ? error.message : error
-});
+  const error = createStore(null)
+    .on(effect, () => null)
+    .on(effect.fail, (_, {error}) => typeof error === 'object' ? error.message : error);
 
-export const initialServiceState = {
-  loading: false,
-  result: null,
-  error: null
+  const result = createStore(initialState)
+    .on(effect.done, (_, {result}) => result);
+
+  return {effect, loading, error, result};
 };
-
-export const createServiceStore = (
-  effect,
-  initialResult = null,
-  onSuccessCallback = successReducer
-) =>
-  createStore({...initialServiceState, result: initialResult})
-    .on(effect, loadingReducer)
-    .on(effect.done, onSuccessCallback)
-    .on(effect.fail, errorReducer);
-
-export const createServiceEffect = (asyncFn, name) =>
-  createEffect({name, handler: asyncFn});

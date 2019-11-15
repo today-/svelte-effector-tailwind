@@ -4,6 +4,6 @@
 
 <style>
   h1 {
-    @apply font-bold py-2 px-4 rounded;
+    @apply font-bold py-2 rounded;
   }
 </style>

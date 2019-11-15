@@ -1,8 +1,11 @@
-// only needed if you want to purge
-// const purgecss = require("@fullhuman/postcss-purgecss")({
-// 	content: ["./src/**/*.svelte", "./public/**/*.html"],
-// 	defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
-// });
+const production = [
+  require('cssnano')({
+    preset: ['default', {
+      discardComments: {removeAll: true},
+    }]
+  })
+];
+
 
 module.exports = {
   plugins: [
@@ -10,8 +13,8 @@ module.exports = {
     require("tailwindcss"),
     require('postcss-nested'),
     require('postcss-custom-properties'),
-    require('autoprefixer')
-    // only needed if you want to purge
-    // ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
+    require('autoprefixer'),
+
+   ...(process.env.NODE_ENV === "production" ? production : [])
   ]
 };

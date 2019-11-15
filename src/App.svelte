@@ -1,24 +1,13 @@
 <script>
-  import News from "./News.svelte";
-  import Todos from "./Todos.svelte";
-  import Counter from "./Counter.svelte";
-  import Heading from './Heading.svelte';
+  import News from "./News/News.svelte";
 </script>
 
-<div class="shadow">
-  <Heading>
-    !
-  </Heading>
-
-  <Counter/>
-
-  <Todos/>
-
+<div class="container">
   <News/>
 </div>
 
 <style>
-  .shadow {
-    @apply shadow;
+  .container {
+    @apply m-4;
   }
 </style>
