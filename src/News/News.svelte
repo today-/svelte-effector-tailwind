@@ -15,14 +15,22 @@
     getNews(page);
   }
 
-  onMount(getNews);
+  function reload() {
+    page = 1;
+    getNews(page);
+  }
+
+  onMount(reload);
 </script>
 
-<Button on:click={getNews}>
+<Button on:click={reload}>
   RELOAD
 </Button>
 
-<Conditional error={$error}>
+<Conditional
+  error={$error}
+  loading={$loading && page < 2}
+>
   {#each $result as item}
     <NewsItem item={item} />
   {/each}
