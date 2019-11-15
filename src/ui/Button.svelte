@@ -2,16 +2,20 @@
   <slot/>
 </button>
 
-<style>
+<style type="text/postcss">
   .button {
     @apply font-bold py-2 px-4 rounded bg-blue-500 text-white transition-bg cursor-pointer;
-  }
 
-  .button:hover {
-    @apply bg-blue-600;
-  }
+    &:hover {
+      @apply bg-blue-600;
+    }
 
-  .button:active {
-    @apply bg-blue-700;
+    &:active {
+      @apply bg-blue-700;
+    }
+
+    &:focus {
+      outline: 0;
+    }
   }
 </style>

@@ -8,21 +8,16 @@
   onMount(getNews);
 </script>
 
-<style>
+<Button on:click={getNews}>
+  RELOAD
+</Button>
 
-</style>
+<Conditional
+  loading={$loading}
+  error={$error}
+>
+  {#each $result as item}
+    <NewsItem item={item} />
+  {/each}
+</Conditional>
 
-<div>
-  <Button on:click={getNews}>
-    RELOAD
-  </Button>
-
-  <Conditional
-    loading={$loading}
-    error={$error}
-  >
-    {#each $result as item}
-      <NewsItem item={item} />
-    {/each}
-  </Conditional>
-</div>

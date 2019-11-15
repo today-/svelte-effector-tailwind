@@ -11,12 +11,12 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 20px;
-    height: 20px;
-    margin-top: -10px;
-    margin-left: -10px;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    margin-left: -20px;
     border-radius: 50%;
-    border: 2px solid #ccc;
+    border: 4px solid #ccc;
     border-top-color: #000;
     animation: spinner .6s linear infinite;
   }
