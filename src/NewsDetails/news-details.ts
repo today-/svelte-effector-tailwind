@@ -4,14 +4,18 @@ import {request} from '../request';
 type INewsDetails = {
   id: string;
   title: string;
-  points: number;
   user: string;
   time_ago: string;
-  type: string;
-  url: string;
-  domain: string;
-  comments: any[];
+  comments_count: number;
+  comments: IComment[];
 };
+
+type IComment = {
+  id: string;
+  user: string;
+  time_ago: string;
+  comments: IComment[];
+}
 
 const fetchDetails = (id: string) => request<INewsDetails>(`item/${id}`);
 

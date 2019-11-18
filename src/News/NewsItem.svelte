@@ -1,4 +1,5 @@
 <script>
+  import Info from "../ui/Info.svelte";
   import {Link} from "svelte-routing";
   import Card from "../ui/Card.svelte";
   import Heading from "../ui/Heading.svelte";
@@ -12,21 +13,12 @@
     <Heading>
       {item.title}
     </Heading>
-    <div class="author">
+    <Info>
       by {item.user}
-    </div>
-    <div class="date">
+    </Info>
+    <Info small>
       {item.time_ago}
-    </div>
+    </Info>
   </Card>
 </Link>
 
-<style>
-  .author {
-    @apply text-gray-600;
-  }
-
-  .date {
-    @apply text-gray-600 text-sm;
-  }
-</style>

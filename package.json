@@ -35,7 +35,7 @@
     "dev": "run-p start:dev autobuild watch:tailwind",
     "build": "npm run build:tailwind && rollup -c",
     "autobuild": "rollup -c -w",
-    "start": "npm run build && sirv public --port $PORT --host 0.0.0.0",
-    "start:dev": "sirv public --dev"
+    "start": "npm run build && sirv public --port $PORT --host 0.0.0.0 --single",
+    "start:dev": "sirv public --dev --single"
   }
 }

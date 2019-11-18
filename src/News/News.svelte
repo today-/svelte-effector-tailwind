@@ -2,7 +2,7 @@
   import Button from "../ui/Button.svelte";
   import NewsItem from "./NewsItem.svelte";
   import InfiniteList from "../InfiniteList/InfiniteList.svelte";
-  import {loading, error, result, effect as getNews} from './news.ts'
+  import {loading, error, result, effect as getNews} from './news.ts';
 </script>
 
 <Button on:click={getNews}>
