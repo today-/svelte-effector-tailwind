@@ -4,7 +4,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import {terser} from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
-import typescript from 'rollup-plugin-typescript';
+import typescript from 'rollup-plugin-typescript2';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -30,7 +30,11 @@ export default {
       dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
     }),
 
-    typescript({module: 'CommonJS'}),
+    typescript({
+      module: 'CommonJS',
+      objectHashIgnoreUnknownHack: true,
+      clean: true
+    }),
 
     commonjs({extensions: ['.ts', '.js']}),
 

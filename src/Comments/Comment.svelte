@@ -1,6 +1,6 @@
 <script>
   import Comments from "./Comments.svelte";
-          import Heading from "../ui/Heading.svelte";
+  import Heading from "../ui/Heading.svelte";
   import Info from "../ui/Info.svelte";
   import Card from "../ui/Card.svelte";
 
